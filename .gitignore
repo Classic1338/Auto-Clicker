@@ -1,0 +1,14 @@
+
+*.ipch
+.vs/AutoClicker/v16/.suo
+*.db
+.vs/AutoClicker/v17/.suo
+*.recipe
+*.ilk
+*.log
+*.pdb
+*.obj
+*.lastbuildstate
+*.tlog
+*.idb
+*.txt

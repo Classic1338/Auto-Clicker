@@ -4,7 +4,7 @@
 
 bool InClick::IsLButtonPressed() 
 {
-	return GetAsyncKeyState(5);
+	return GetAsyncKeyState(0x06);
 }
 
 void InClick::ClickMouse(int x, int y)
@@ -19,7 +19,8 @@ void InClick::ClickMouse(int x, int y)
 	mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0); //left click to well click the mouse
 	Utilities::Sleep(1);//sleep for 1ms to avoid any bugs involving the click not happening
 	mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0); //release the left click so we can sleep the program 
-	Utilities::Sleep(((1.f / (InClick::RageMode ? 300.f : InClick::LegitCPS)) * 1000) - 1); //sleep the program for x ms to achieve the autoclick
+	Utilities::Sleep(1200);
+	//Utilities::Sleep(((1.f / (InClick::RageMode ? 300.f : InClick::LegitCPS)) * 1000) - 1); //sleep the program for x ms to achieve the autoclick
 }
 
 void InClick::Clicking()
