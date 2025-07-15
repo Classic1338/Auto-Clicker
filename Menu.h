@@ -5,5 +5,6 @@ namespace Menu
 {
 	void MenuState();
 	void ChangeCPS();
-	void ChooseGame();
+	void Settings();
+	std::string FromIntToText(bool& bVariable);
 }

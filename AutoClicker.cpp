@@ -10,10 +10,7 @@ void HandleClicks()
 		if (InClick::IsLButtonPressed())
 			InClick::Clicking(); //if button is clicked then do the autoclicker
 		else
-			Utilities::Sleep(50); //else sleep to avoid mem leaks
-
-		if (GetAsyncKeyState(VK_INSERT) & 1)
-			InClick::RageMode = !InClick::RageMode; //switch between rage mode
+			Utilities::Sleep(50); //else sleep thread
 
 		if (GetAsyncKeyState(VK_DELETE) & 1)
 			exit( EXIT_SUCCESS ); //close the program (incase of emergency)
@@ -25,19 +22,31 @@ void HandleConsole()
 	bool OldRageModeState = InClick::RageMode;
 	bool OldMCState = InClick::PlayingMC;
 	float OldLegitCount = InClick::LegitCPS;
+	bool oldRightClick = InClick::bRightClick;
+	bool oldChestMode = InClick::bChestAnnoyance;
+	bool oldSpaceKey = InClick::bSpaceKey;
+	bool oldTripwireAuto = InClick::bTripwireAutomation;
 	system("TITLE Classic1337#1324 AutoClicker"); //sets the console little to whatever is after TITLE
 	Menu::MenuState(); //can call here as code here is called once only
 	while (true) //keep the program open until we close it
 	{
 		Menu::ChangeCPS(); //called so we can change the CP/s
-		Menu::ChooseGame(); //called so we can choose if we're on mc or not (maybe make more bypasses for more games)
+		Menu::Settings(); //called so we can choose if we're on mc or not (maybe make more bypasses for more games)
 		if (OldRageModeState != InClick::RageMode || //check if the oldvalue doesnt equal the new value
 			OldLegitCount    != InClick::LegitCPS ||
-			OldMCState       != InClick::PlayingMC) {
+			OldMCState       != InClick::PlayingMC ||
+			oldRightClick	 != InClick::bRightClick ||
+			oldChestMode	 != InClick::bChestAnnoyance ||
+			oldSpaceKey		 != InClick::bSpaceKey ||
+			oldTripwireAuto  != InClick::bTripwireAutomation) {
 
-			OldRageModeState = InClick::RageMode; //update old ragemode state for on and off updating
-			OldLegitCount	 = InClick::LegitCPS; //update old legitcps state for counting update
-			OldMCState		 = InClick::PlayingMC;//update old mc state for on and off updating
+			OldRageModeState = InClick::RageMode;	 //update old ragemode state for on and off updating
+			OldLegitCount	 = InClick::LegitCPS;	 //update old legitcps state for counting update
+			OldMCState		 = InClick::PlayingMC;	 //update old mc state for on and off updating
+			oldRightClick	 = InClick::bRightClick; //update old right click for on and off updating
+			oldChestMode     = InClick::bChestAnnoyance; //update old chest mode for on and off updating
+			oldSpaceKey      = InClick::bSpaceKey;		 //update old space key check for on and off updating
+			oldTripwireAuto = InClick::bTripwireAutomation; //update old tripwire automation check for on and off updating
 
 			system("cls");//clears console so we can update the menu yet again
 			Menu::MenuState();//call menustate again to reshow menu
