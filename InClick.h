@@ -12,6 +12,7 @@ namespace InClick
 	void SpaceBar( );
 	void ClickMouse( int x, int y );
 	void Clicking( );
+	void ClooneyMode(int x, int y);
 
 	inline bool RageMode;
 	inline float LegitCPS = 11;
@@ -20,4 +21,5 @@ namespace InClick
 	inline bool bChestAnnoyance = false;
 	inline bool bSpaceKey = false;
 	inline bool bTripwireAutomation = false;
+	inline bool bClooneyMode = false;
 }

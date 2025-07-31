@@ -26,6 +26,7 @@ void HandleConsole()
 	bool oldChestMode = InClick::bChestAnnoyance;
 	bool oldSpaceKey = InClick::bSpaceKey;
 	bool oldTripwireAuto = InClick::bTripwireAutomation;
+	bool oldClooneyMode = InClick::bClooneyMode;
 	system("TITLE Classic1337#1324 AutoClicker"); //sets the console little to whatever is after TITLE
 	Menu::MenuState(); //can call here as code here is called once only
 	while (true) //keep the program open until we close it
@@ -38,7 +39,8 @@ void HandleConsole()
 			oldRightClick	 != InClick::bRightClick ||
 			oldChestMode	 != InClick::bChestAnnoyance ||
 			oldSpaceKey		 != InClick::bSpaceKey ||
-			oldTripwireAuto  != InClick::bTripwireAutomation) {
+			oldTripwireAuto  != InClick::bTripwireAutomation ||
+			oldClooneyMode   != InClick::bClooneyMode) {
 
 			OldRageModeState = InClick::RageMode;	 //update old ragemode state for on and off updating
 			OldLegitCount	 = InClick::LegitCPS;	 //update old legitcps state for counting update
@@ -46,7 +48,8 @@ void HandleConsole()
 			oldRightClick	 = InClick::bRightClick; //update old right click for on and off updating
 			oldChestMode     = InClick::bChestAnnoyance; //update old chest mode for on and off updating
 			oldSpaceKey      = InClick::bSpaceKey;		 //update old space key check for on and off updating
-			oldTripwireAuto = InClick::bTripwireAutomation; //update old tripwire automation check for on and off updating
+			oldTripwireAuto  = InClick::bTripwireAutomation; //update old tripwire automation check for on and off updating
+			oldClooneyMode   = InClick::bClooneyMode;
 
 			system("cls");//clears console so we can update the menu yet again
 			Menu::MenuState();//call menustate again to reshow menu

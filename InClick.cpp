@@ -59,6 +59,35 @@ void InClick::ClickMouse(int x, int y)
 	Utilities::Sleep(((1.f / (InClick::RageMode ? 5000.f : InClick::LegitCPS)) * 1000) - 1); //sleep the program for x ms to achieve the autoclick
 }
 
+void InClick::ClooneyMode(int x, int y) {
+	mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0); //left click to well click the mouse
+	Utilities::Sleep(1);//sleep for 1ms to avoid any bugs involving the click not happening
+	mouse_event(MOUSEEVENTF_RIGHTUP, x, y, 0, 0); //release the left click so we can sleep the program 
+
+	INPUT ip;
+	ip.type = INPUT_KEYBOARD;
+	ip.ki.wScan = 0;
+	ip.ki.time = 0;
+	ip.ki.dwExtraInfo = 0;
+	  
+	ip.ki.wVk = 0xA0;
+	ip.ki.dwFlags = 0;
+	SendInput(1, &ip, sizeof(INPUT));
+
+	Utilities::Sleep(1);
+
+	ip.type = INPUT_KEYBOARD;
+	ip.ki.wScan = 0;
+	ip.ki.time = 0;
+	ip.ki.dwExtraInfo = 0;
+
+	ip.ki.wVk = 0xA0;
+	ip.ki.dwFlags = KEYEVENTF_KEYUP;
+	SendInput(1, &ip, sizeof(INPUT));
+
+	Utilities::Sleep(((1.f / 5000.f) * 1000) - 1);
+}
+
 void InClick::Clicking()
 {
 	//get mouse position
@@ -71,12 +100,15 @@ void InClick::Clicking()
 	if (bTripwireAutomation)
 		TripwireAutomation(x, y);
 
-	if (bChestAnnoyance || bSpaceKey) {
+	if (bChestAnnoyance || bSpaceKey || bClooneyMode) {
 		if (bChestAnnoyance)
 			ChestAnnoyance(x, y);
 		
 		if (bSpaceKey)
 			SpaceBar();
+
+		if (bClooneyMode)
+			ClooneyMode(x, y);
 	}
 	else
 		ClickMouse(x, y);//we're parsing the x and y co-ords for the mouse pos so we're not just clicking in random places (which we would if we just did 0,0,0,0

@@ -28,6 +28,9 @@ void Menu::Settings()
 
 	if (GetAsyncKeyState(VK_F7) & 1)
 		InClick::bTripwireAutomation = !InClick::bTripwireAutomation;
+
+	if (GetAsyncKeyState(VK_F8) & 1)
+		InClick::bClooneyMode = !InClick::bClooneyMode;
 }
 
 std::string Menu::FromIntToText(bool& bVariable) {
@@ -50,4 +53,6 @@ void Menu::MenuState()
 	std::cout << "Press Space Key: " << FromIntToText(InClick::bSpaceKey); //print the game state
 	std::cout << "\n";
 	std::cout << "Automate Tripwire: " << FromIntToText(InClick::bTripwireAutomation); //print the game state
+	std::cout << "\n";
+	std::cout << "Clooney Mode: " << FromIntToText(InClick::bClooneyMode); //print the game state
 }
