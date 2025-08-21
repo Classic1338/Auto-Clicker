@@ -7,6 +7,13 @@ bool InClick::IsLButtonPressed()
 	return GetAsyncKeyState(0x06);
 }
 
+void InClick::AntiAFK(int x, int y) {
+	mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0); //left click to well click the mouse
+	Utilities::Sleep(1);//sleep for 1ms to avoid any bugs involving the click not happening
+	mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0); //release the left click so we can sleep the program 
+	Utilities::Sleep(10000); //sleep the program for x ms to achieve the autoclick
+}
+
 void InClick::TripwireAutomation(int x, int y) {
 	mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0); //left click to well click the mouse
 	Utilities::Sleep(1);//sleep for 1ms to avoid any bugs involving the click not happening

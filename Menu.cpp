@@ -31,6 +31,9 @@ void Menu::Settings()
 
 	if (GetAsyncKeyState(VK_F8) & 1)
 		InClick::bClooneyMode = !InClick::bClooneyMode;
+
+	if (GetAsyncKeyState(VK_F9) & 1)
+		InClick::bAntiAFK = !InClick::bAntiAFK;
 }
 
 std::string Menu::FromIntToText(bool& bVariable) {
@@ -55,4 +58,6 @@ void Menu::MenuState()
 	std::cout << "Automate Tripwire: " << FromIntToText(InClick::bTripwireAutomation); //print the game state
 	std::cout << "\n";
 	std::cout << "Clooney Mode: " << FromIntToText(InClick::bClooneyMode); //print the game state
+	std::cout << "\n";
+	std::cout << "Anti AFK: " << FromIntToText(InClick::bAntiAFK); //print the game state
 }

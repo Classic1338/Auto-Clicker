@@ -7,6 +7,7 @@
 namespace InClick
 {
 	bool IsLButtonPressed( );
+	void AntiAFK(int x, int y);
 	void TripwireAutomation( int x, int y );
 	void ChestAnnoyance( int x, int y );
 	void SpaceBar( );
@@ -22,4 +23,5 @@ namespace InClick
 	inline bool bSpaceKey = false;
 	inline bool bTripwireAutomation = false;
 	inline bool bClooneyMode = false;
+	inline bool bAntiAFK = false;
 }

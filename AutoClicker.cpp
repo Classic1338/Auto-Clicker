@@ -7,6 +7,16 @@ void HandleClicks()
 {
 	while (true)
 	{
+		if (InClick::bAntiAFK) {
+			static int x, y; //we're gonna store the cursor pos on these
+			POINT cursor;//we're gonna use this for GetCursorPos's argument
+			GetCursorPos(&cursor);//set cursor to where ever the cursor is
+			x = cursor.x; //set x to the cursors x pos
+			y = cursor.y;//set y to the cursors y pos
+
+			InClick::AntiAFK(x, y);
+		}
+
 		if (InClick::IsLButtonPressed())
 			InClick::Clicking(); //if button is clicked then do the autoclicker
 		else
@@ -27,6 +37,7 @@ void HandleConsole()
 	bool oldSpaceKey = InClick::bSpaceKey;
 	bool oldTripwireAuto = InClick::bTripwireAutomation;
 	bool oldClooneyMode = InClick::bClooneyMode;
+	bool oldAntiAFK = InClick::bAntiAFK;
 	system("TITLE Classic1337#1324 AutoClicker"); //sets the console little to whatever is after TITLE
 	Menu::MenuState(); //can call here as code here is called once only
 	while (true) //keep the program open until we close it
@@ -40,7 +51,8 @@ void HandleConsole()
 			oldChestMode	 != InClick::bChestAnnoyance ||
 			oldSpaceKey		 != InClick::bSpaceKey ||
 			oldTripwireAuto  != InClick::bTripwireAutomation ||
-			oldClooneyMode   != InClick::bClooneyMode) {
+			oldClooneyMode   != InClick::bClooneyMode ||
+			oldAntiAFK		 != InClick::bAntiAFK) {
 
 			OldRageModeState = InClick::RageMode;	 //update old ragemode state for on and off updating
 			OldLegitCount	 = InClick::LegitCPS;	 //update old legitcps state for counting update
@@ -50,6 +62,7 @@ void HandleConsole()
 			oldSpaceKey      = InClick::bSpaceKey;		 //update old space key check for on and off updating
 			oldTripwireAuto  = InClick::bTripwireAutomation; //update old tripwire automation check for on and off updating
 			oldClooneyMode   = InClick::bClooneyMode;
+			oldAntiAFK		 = InClick::bAntiAFK;
 
 			system("cls");//clears console so we can update the menu yet again
 			Menu::MenuState();//call menustate again to reshow menu
