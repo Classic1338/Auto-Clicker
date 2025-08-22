@@ -24,4 +24,5 @@ namespace InClick
 	inline bool bTripwireAutomation = false;
 	inline bool bClooneyMode = false;
 	inline bool bAntiAFK = false;
+	inline bool bConstantlyRightClick = false;
 }

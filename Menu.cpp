@@ -34,6 +34,9 @@ void Menu::Settings()
 
 	if (GetAsyncKeyState(VK_F9) & 1)
 		InClick::bAntiAFK = !InClick::bAntiAFK;
+
+	if (GetAsyncKeyState(VK_F10) & 1)
+		InClick::bConstantlyRightClick = !InClick::bConstantlyRightClick;
 }
 
 std::string Menu::FromIntToText(bool& bVariable) {
@@ -43,21 +46,23 @@ std::string Menu::FromIntToText(bool& bVariable) {
 void Menu::MenuState()
 {
 	system("color a");
-	std::cout << "Rage Mode: " << FromIntToText(InClick::RageMode); //print the ragemode state
+	std::cout << "Rage Mode: " << FromIntToText(InClick::RageMode);
 	std::cout << "\n";
-	std::cout << "Legit CPS: " << InClick::LegitCPS; //print the legit cps count
+	std::cout << "Legit CPS: " << InClick::LegitCPS;
 	std::cout << "\n";
-	std::cout << "Right Click: " << FromIntToText(InClick::bRightClick); //print the game state
+	std::cout << "Right Click: " << FromIntToText(InClick::bRightClick);
 	std::cout << "\n";
-	std::cout << "Playing MC: " << FromIntToText(InClick::PlayingMC); //print the game state
+	std::cout << "Playing MC: " << FromIntToText(InClick::PlayingMC);
 	std::cout << "\n";
-	std::cout << "Chest Annoyance: " << FromIntToText(InClick::bChestAnnoyance); //print the game state
+	std::cout << "Chest Annoyance: " << FromIntToText(InClick::bChestAnnoyance);
 	std::cout << "\n";
-	std::cout << "Press Space Key: " << FromIntToText(InClick::bSpaceKey); //print the game state
+	std::cout << "Press Space Key: " << FromIntToText(InClick::bSpaceKey);
 	std::cout << "\n";
-	std::cout << "Automate Tripwire: " << FromIntToText(InClick::bTripwireAutomation); //print the game state
+	std::cout << "Automate Tripwire: " << FromIntToText(InClick::bTripwireAutomation);
 	std::cout << "\n";
-	std::cout << "Clooney Mode: " << FromIntToText(InClick::bClooneyMode); //print the game state
+	std::cout << "Clooney Mode: " << FromIntToText(InClick::bClooneyMode);
 	std::cout << "\n";
-	std::cout << "Anti AFK: " << FromIntToText(InClick::bAntiAFK); //print the game state
+	std::cout << "Anti AFK: " << FromIntToText(InClick::bAntiAFK);
+	std::cout << "\n";
+	std::cout << "Hold Right Click: " << FromIntToText(InClick::bConstantlyRightClick);
 }

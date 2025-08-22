@@ -15,11 +15,6 @@ void InClick::AntiAFK(int x, int y) {
 }
 
 void InClick::TripwireAutomation(int x, int y) {
-	mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0); //left click to well click the mouse
-	Utilities::Sleep(1);//sleep for 1ms to avoid any bugs involving the click not happening
-	mouse_event(MOUSEEVENTF_RIGHTUP, x, y, 0, 0); //release the left click so we can sleep the program 
-	Utilities::Sleep((1.f / 30.f * 1000) - 1); //sleep the program for x ms to achieve the autoclick
-
 	mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0); //left click to well click the mouse
 	Utilities::Sleep(1);//sleep for 1ms to avoid any bugs involving the click not happening
 	mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0); //release the left click so we can sleep the program 
@@ -53,13 +48,6 @@ void InClick::SpaceBar( ) {
 
 void InClick::ClickMouse(int x, int y)
 {
-	if (InClick::PlayingMC)
-	{
-		mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0);//click the right button for block
-		Utilities::Sleep(2);//sleep for 2 ms so it hopefully blocks an attack
-		mouse_event(MOUSEEVENTF_RIGHTUP, x, y, 0, 0); //release the right buttons click
-		Utilities::Sleep((1.f / 5.f * 1000) - 1); //hold off for this amount of time (5cps worth)
-	}
 	mouse_event(InClick::bRightClick ? MOUSEEVENTF_RIGHTDOWN : MOUSEEVENTF_LEFTDOWN, x, y, 0, 0); //left click to well click the mouse
 	Utilities::Sleep(1);//sleep for 1ms to avoid any bugs involving the click not happening
 	mouse_event(InClick::bRightClick ? MOUSEEVENTF_RIGHTUP : MOUSEEVENTF_LEFTUP, x, y, 0, 0); //release the left click so we can sleep the program 
